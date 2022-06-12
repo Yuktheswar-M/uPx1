@@ -6,10 +6,10 @@ module mux2to1 (
 );
     wire [1:0] w;
     wire n;
-    nand #1 g1(n,sel),
-        g2(w[0],in[0],n),
-        g3(w[1],in[1],sel),
-        g4(out,w[0],w[1]);
+    nand g1(n,sel),
+     g2(w[0],in[0],n),
+     g3(w[1],in[1],sel),
+     g4(out,w[0],w[1]);
 endmodule
 
 module mux4to1(
@@ -40,7 +40,7 @@ module tristate (
     input in,en,
     output out
 );
-  assign #1 out=en?in:1'bz;  
+  assign out=en?in:1'bz;  
 endmodule
 
 module demux1to2 (
@@ -48,7 +48,7 @@ module demux1to2 (
     output [1:0] out
 );
     wire[2:0] t;
-    nand  #1  n1(t[0],sel),
+    nand    n1(t[0],sel),
         n2(t[1],in,t[0]),
         n3(t[2],in,sel),
         n4(out[0],t[1]),
