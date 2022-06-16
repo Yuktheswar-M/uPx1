@@ -1,0 +1,43 @@
+Provisional
+Opcode,Regs (,Regs/Value/Pointer)
+
+6,5,5
+AND Rx Ry       - 101100    AND contents of regs
+OR  Rx Ry       - 101000    OR contents of regs
+ADD Rx Ry       - 100100    Add Rx and Ry; Store sum in Rx 
+SUB Rx Ry       - 100010    Subtract Ry from Rx; Store diff in Rx
+MUL Rx Ry       - 100001    Multiply Rx and Ry; Store in (R1 R0) 
+CMP Rx Ry       - 100000    Set flag 1 if equal
+
+11,5
+NEG Rx          - 011100    2's complement of reg 
+SHL Rx          - 011000    Logical left shift
+SHR Rx          - 010100    Logical right shift
+ROL Rx          - 010010    Rotate left
+ROR Rx          - 010001    Rotate right
+INC Rx          - 010000    Add 1 to Rx; carry not affected 
+
+5,3,8           Limited to 8 specific registers
+LDI Rx <x>      - 11110     Load immediate value into reg
+ADI Rx <x>      - 11100     Add immediate value to Rx; Store sum in Rx
+SBI Rx <x>      - 11010     Subtract immediate value from Rx; Store diff in Rx
+ANDI Rx <x>     - 11001     AND reg and immediate value
+ORI Rx <x>      - 11000     OR reg and immediate value           
+
+8,8             
+JMP 0xXXXX      - 11111100  Jump to PM address
+BREQ 0xXXXX     - 11111010  If equal flag is 1, go to PM address;else inc PC 
+BRZ  0xXXXX     - 11111001  Branch if zero flag is set
+
+JPRL $xxxx      - 11111000  Relative jump wrt PC
+
+11,5,16
+LDA Rx $xxxx    - 1011111   Load directly from address into reg
+STA $xxxx Rx    - 1011110   Store contents of reg into address
+
+11,5,16
+LDP Rx Rptr     - 0111111   Load from memory pointed by (Rp+1 Rp) into reg - y even
+STP Rptr Rx     - 0111110   Store contents of reg into address pointed by (Rp+1 Rp) - p even
+
+trivial
+NOP             - 000..00     No operation
