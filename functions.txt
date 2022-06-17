@@ -2,6 +2,7 @@ Provisional
 Opcode,Regs (,Regs/Value/Pointer)
 
 6,5,5
+MOV Rx Ry       - 101110    Move contents of Ry to Rx
 AND Rx Ry       - 101100    AND contents of regs
 OR  Rx Ry       - 101000    OR contents of regs
 ADD Rx Ry       - 100100    Add Rx and Ry; Store sum in Rx 
