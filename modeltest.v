@@ -1,5 +1,5 @@
 
-module clrtest;
+module cputest;
     supply1 VCC;
     supply0 GND;
 
